@@ -1,0 +1,15 @@
+body {
+    font-family: Share Tech !important;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  #sidebar {
+    border-top-width: 50px;
+    padding-top: 10px;
+    box-shadow: inset 0px 10px 10px 0px rgb(70, 70, 70, 0.5);
+}
+
+#content {
+    background-color: rgba(150, 150, 150, 0.5);
+}
