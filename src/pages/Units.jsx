@@ -8,8 +8,8 @@ export async function unitLoader() {
 
 export default function Units() {
 
-  const units = useLoaderData();
- 
+  //const units = useLoaderData();
+ const units = [];
   return (
     <div>
       <h4>Units</h4>
