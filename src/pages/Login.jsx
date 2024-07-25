@@ -11,7 +11,7 @@ export const LoginPage = () => {
   const handleLogin = async () => {
     setLoginError("");
 
-    const response = await fetch('http://localhost:5000/api' + '/player/login', {
+    const response = await fetch('http://localhost:5000/api' + '/user/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -20,26 +20,14 @@ export const LoginPage = () => {
     });
   
     if (response.ok) {
-      await login({ username });
+      const userData = await response.json();
+      await login( userData);
     } else {
       // Handle login failure
       const errorData = await response.json();
       setLoginError(errorData.message);
     }
   };
-
-  /*
-  const handleLogin = async (e) => {
-    
-    // Here you would usually send a request to your backend to authenticate the user
-    // For the sake of this example, we're using a mock authentication
-    if (username === "user" && password === "password") {
-      // Replace with actual authentication logic
-      await login({ username });
-    } else {
-      alert("Invalid username or password");
-    }
-  };*/
 
   return (
     <div className="row">

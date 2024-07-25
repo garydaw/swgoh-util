@@ -1,18 +1,22 @@
 import { Link, useLoaderData } from "react-router-dom";
-
+import { useAuth } from "../hooks/useAuth";
+import { useData } from "../hooks/useData";
 
 export async function unitLoader() {
-  const data = await fetch('http://localhost:5000/api/player/832233694/unit').then(r => r.json());
+  
+  
+  const data = await fetch('http://localhost:5000/api/player/'+player+'/unit').then(r => r.json());
   return data;
 }
 
 export default function Units() {
-
   //const units = useLoaderData();
- const units = [];
+  const { player } = useData();
+  const {user, admin} = useAuth();
+  const units = [];
   return (
     <div>
-      <h4>Units</h4>
+      <h4>Units for {user} is admin {admin}, player from data {player}</h4>
       {units.length ? (
             <ul>
               {units.map((unit) => (
